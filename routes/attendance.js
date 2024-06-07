@@ -10,7 +10,7 @@ const getAttendance =(request,response)=>{
             return;
         }
         console.log("MySQL connected...");
-    });
+    
     const getQuery = `select * from ${div}_${sub}`;
     connection.query(getQuery,function(err,result){
         if(err){
@@ -22,5 +22,6 @@ const getAttendance =(request,response)=>{
             response.status(200).json({code:200,message:"Success",result:result});
         }
     });
+});
 }
 export {getAttendance};

@@ -28,7 +28,7 @@ const studInfoRoutes = (request, response) => {
       return;
     }
     console.log("MySQL connected...");
-  });
+  
   // connection.end();
   
   const checkQuery = `select * from studentinfo where prn="${prn}"`;
@@ -90,5 +90,6 @@ const studInfoRoutes = (request, response) => {
       }
     }
   });
+});
 };
 export { studInfoRoutes };

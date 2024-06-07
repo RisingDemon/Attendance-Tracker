@@ -10,7 +10,7 @@ const submitAttendance = (request, response) => {
       return;
     }
     console.log("MySQL connected...");
-  });
+  
   // get todays date
   let today = new Date();
   let dd = String(today.getDate()).padStart(2, "0");
@@ -48,5 +48,6 @@ const submitAttendance = (request, response) => {
       // connection.end();
     }
   });
+});
 };
 export { submitAttendance };

@@ -9,8 +9,8 @@ const getTeachInfo = (request, response) => {
       console.error("error connecting: " + err.stack);
       return;
     }
-    console.log("MySQL connected...");
-  });
+    console.log("MySQL connected in teacher login...");
+  
   const checkQuery = `select * from teacherInfo where email="${email}"`;
   connection.query(checkQuery, function (err, result) {
     if (err) {
@@ -50,5 +50,6 @@ const getTeachInfo = (request, response) => {
 
     }
   });
+});
 };
 export { getTeachInfo };

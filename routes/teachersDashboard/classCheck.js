@@ -10,7 +10,7 @@ const classCheckRoutes = (request, response) => {
           return;
         }
         console.log("MySQL connected...");
-      });
+      
     const checkQuery = `select * from information_schema.tables where table_name = '${div}_${sub}'`;
     // check if table is already present
     connection.query(checkQuery, function (err, result) {
@@ -62,6 +62,6 @@ const classCheckRoutes = (request, response) => {
           }
         }
     });
-    
+  });
 };
 export { classCheckRoutes };

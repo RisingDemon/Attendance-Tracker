@@ -9,12 +9,14 @@ const storeTeachInfo = (request, response) => {
       console.error("error connecting: " + err.stack);
       return;
     }
-    console.log("MySQL connected...");
-  });
+    console.log("MySQL connected in teacher register...");
+  
   const checkQuery = `select * from teacherInfo where email="${email}"`;
   connection.query(checkQuery, function (err, result) {
+
     if (err) {
       console.log(err);
+      connection.end();
       response
         .status(600)
         .json({ code: 600, message: "Internal server error" });
@@ -24,11 +26,13 @@ const storeTeachInfo = (request, response) => {
         connection.query(insertQuery, function (err) {
           if (err) {
             console.log(err);
+            // connection.end();
             response
               .status(500)
               .json({ code: 500, message: "Internal server error" });
           } else {
             console.log("user registered");
+            // connection.end();
             response
               .status(200)
               .json({ code: 200, message: "User registered successfully" });
@@ -36,11 +40,13 @@ const storeTeachInfo = (request, response) => {
         });
       } else {
         console.log("user already registered");
+        // connection.end();
         response
           .status(300)
           .json({ code: 300, message: "User already registered" });
       }
     }
   });
+});
 };
 export { storeTeachInfo };

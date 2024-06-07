@@ -11,7 +11,7 @@ const getRollNo = (request, response) => {
       return;
     }
     console.log("MySQL connected...");
-  });
+  
 
   try{
   const checkQuery = `show tables like '${div}%'`;
@@ -72,6 +72,7 @@ const getRollNo = (request, response) => {
 //   connection.end();
 //   console.log("connection closed");
 }
+});
 };
 
 export { getRollNo };

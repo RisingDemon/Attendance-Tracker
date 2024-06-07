@@ -9,7 +9,7 @@ const getStudents = (request, response) => {
           return;
         }
         console.log("MySQL connected...");
-      });
+      
       
       const checkQuery=`select * from ${tName} order by roll`;
       connection.query(checkQuery, function (err, result) {
@@ -24,5 +24,6 @@ const getStudents = (request, response) => {
             // console.log("table already present");
         }
     });
+  });
 };
 export{getStudents};
